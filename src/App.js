@@ -1,24 +1,43 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import TopForm from "./components/topform";
+import {
+  BrowserRouter,
+  Switch,
+  Route,
+  Link
+} from "react-router-dom";
+import Planets from "./components/Planets";
+import Spaceships from "./components/Spaceships";
+import Vehicles from "./components/Vehicles";
+import People from "./components/People";
+import Films from "./components/Films";
+import Species from "./components/Species";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <TopForm/>
+      <Switch>
+        <Route path="/planets/:id">
+          <Planets/>
+        </Route>
+        <Route path="/spaceships/:id">
+          <Spaceships/>
+        </Route>
+        <Route path="/vehicles/:id">
+          <Vehicles/>
+        </Route>
+        <Route path="/people/:id">
+          <People/>
+        </Route>
+        <Route path="/films/:id">
+          <Films/>
+        </Route>
+        <Route path="/species/:id">
+          <Species/>
+        </Route>
+      </Switch>
+    </BrowserRouter>
   );
 }
 
